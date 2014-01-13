@@ -5,9 +5,7 @@
  */
 package elcellervins;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -31,9 +29,36 @@ public class FrmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jF_nouProducte = new javax.swing.JFrame();
+        jB_tornar = new javax.swing.JButton();
         jB_obtenirCataleg = new javax.swing.JButton();
         jB_nouProducte = new javax.swing.JButton();
         jB_editarProducte = new javax.swing.JButton();
+
+        jF_nouProducte.setBounds(bounds());
+        jF_nouProducte.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                jF_nouProducteWindowClosing(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jF_nouProducteLayout = new javax.swing.GroupLayout(jF_nouProducte.getContentPane());
+        jF_nouProducte.getContentPane().setLayout(jF_nouProducteLayout);
+        jF_nouProducteLayout.setHorizontalGroup(
+            jF_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 673, Short.MAX_VALUE)
+        );
+        jF_nouProducteLayout.setVerticalGroup(
+            jF_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 419, Short.MAX_VALUE)
+        );
+
+        jB_tornar.setText("Tornar");
+        jB_tornar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_tornarActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,6 +70,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
 
         jB_nouProducte.setText("Nou Producte");
+        jB_nouProducte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_nouProducteActionPerformed(evt);
+            }
+        });
 
         jB_editarProducte.setText("Editar Producte");
 
@@ -60,21 +90,21 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         .addComponent(jB_nouProducte, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(85, 85, 85)
                         .addComponent(jB_obtenirCataleg, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addContainerGap(212, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(jB_nouProducte, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(130, 130, 130)
-                        .addComponent(jB_obtenirCataleg, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jB_obtenirCataleg, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(jB_nouProducte, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(49, 49, 49)
                 .addComponent(jB_editarProducte, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(272, Short.MAX_VALUE))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
 
         pack();
@@ -82,8 +112,27 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jB_obtenirCatalegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_obtenirCatalegActionPerformed
-        
+
     }//GEN-LAST:event_jB_obtenirCatalegActionPerformed
+
+    private void jB_nouProducteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_nouProducteActionPerformed
+        jF_nouProducte.getContentPane().add(jB_tornar);
+        jF_nouProducte.pack();
+        jB_tornar.setVisible(true);
+        jF_nouProducte.setSize(FrmPrincipal.getFrames()[0].getSize());
+        jF_nouProducte.setLocationRelativeTo(this);
+        jF_nouProducte.setVisible(true);
+        FrmPrincipal.getWindows()[0].setVisible(false);
+    }//GEN-LAST:event_jB_nouProducteActionPerformed
+
+    private void jB_tornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_tornarActionPerformed
+        jF_nouProducte.setVisible(false);
+        FrmPrincipal.getWindows()[0].setVisible(true);
+    }//GEN-LAST:event_jB_tornarActionPerformed
+
+    private void jF_nouProducteWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jF_nouProducteWindowClosing
+        FrmPrincipal.getWindows()[0].setVisible(true);
+    }//GEN-LAST:event_jF_nouProducteWindowClosing
 
     /**
      * @param args the command line arguments
@@ -124,5 +173,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jB_editarProducte;
     private javax.swing.JButton jB_nouProducte;
     private javax.swing.JButton jB_obtenirCataleg;
+    private javax.swing.JButton jB_tornar;
+    private javax.swing.JFrame jF_nouProducte;
     // End of variables declaration//GEN-END:variables
 }
