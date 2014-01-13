@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @author Reixowtf
  */
 public abstract class Vi {
-    private String dataCata, nom, productor, regio, alcohol, profunditat, tonalitat, netedat, intensitatColor, sec_dols, cos, acides, instensitatSabor;
+    private String dataCata, tipus, nom, productor, regio, alcohol, profunditat, tonalitat, netedat, intensitatColor, sec_dols, cos, acides, instensitatSabor;
     private ArrayList<String> varietatRaim, aromes, sabors;
     private float preu;
     private byte temps, qualificacio;
@@ -23,8 +23,10 @@ public abstract class Vi {
     nom = "";
     }*/
     
-    public Vi(String dataCata, String nom, String productor, String regio, String alcohol, String profunditat, String tonalitat, String netedat, String intensitatColor, String sec_dols, String cos, String acides, String instensitatSabor, ArrayList<String> varietatRaim, ArrayList<String> aromes, ArrayList<String> sabors, float preu, byte temps, byte qualificacio) {
+    //Tipus és si el vi és jove, de criansa o vi per cava.
+    public Vi(String dataCata, String tipus, String nom, String productor, String regio, String alcohol, String profunditat, String tonalitat, String netedat, String intensitatColor, String sec_dols, String cos, String acides, String instensitatSabor, ArrayList<String> varietatRaim, ArrayList<String> aromes, ArrayList<String> sabors, float preu, byte temps, byte qualificacio) {
         this.dataCata = dataCata;
+        this.tipus = tipus;
         this.nom = nom;
         this.productor = productor;
         this.regio = regio;
@@ -45,6 +47,37 @@ public abstract class Vi {
         this.qualificacio = qualificacio;
     }
 
+    /*Classificació de les olors: (pag 7/8)
+        Vegetals, Florals, frutals, 'esteres', especiades, animals, balsàmics, 'empireumàtics', fusta, químics.
+    */
+    
+    /*Classificació del color dels vins blancs: (pag 11)
+        Groc pàlic, groc llimona, groc 'pajizo', or brillant, or vell, ocre
+    */
+    
+    /*Classificació dels aromes del vi blanc: (pag )
+        
+    */
+    
+    /*Classificació del gust dels vins blancs: (pag 11)
+        Fresc, equilibrat, desequilibrat , 'descarnado', 'acidulo'
+    */
+    
+    /*Classificació del color del vi negre: (pag 17)
+        Vermell, cirera, rubí, 'Teja', pell de ceva, ocre
+    */
+    
+    /*Classificació dels aromes del vi negre: (pag 17)
+        Fruita 'Roia', herbes, vegetals, flors, especies, balsàmics, minerals, cafés, fruta madura, sotabosc, pasteleria, torrat, 'gomas', olorosos, animals
+    */
+    
+    /*Classififació del gust del vi negre (pag 17)
+        aspre, 'aterciopelado', 'sedoso', 'descarnado', 'acídulo'
+    */
+    
+    
+    
+    
     public String getDataCata() {
         return dataCata;
     }

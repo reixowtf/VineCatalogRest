@@ -78,6 +78,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jB_obtenirCatalegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_obtenirCatalegActionPerformed
