@@ -5,6 +5,8 @@
  */
 package elcellervins;
 
+import java.awt.CardLayout;
+import java.awt.Container;
 import javax.swing.WindowConstants;
 
 /**
@@ -29,38 +31,17 @@ public class FrmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jF_nouProducte = new javax.swing.JFrame();
-        jB_tornar = new javax.swing.JButton();
+        jP_principal = new javax.swing.JPanel();
+        jB_editarProducte = new javax.swing.JButton();
         jB_obtenirCataleg = new javax.swing.JButton();
         jB_nouProducte = new javax.swing.JButton();
-        jB_editarProducte = new javax.swing.JButton();
-
-        jF_nouProducte.setBounds(bounds());
-        jF_nouProducte.addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                jF_nouProducteWindowClosing(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jF_nouProducteLayout = new javax.swing.GroupLayout(jF_nouProducte.getContentPane());
-        jF_nouProducte.getContentPane().setLayout(jF_nouProducteLayout);
-        jF_nouProducteLayout.setHorizontalGroup(
-            jF_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 673, Short.MAX_VALUE)
-        );
-        jF_nouProducteLayout.setVerticalGroup(
-            jF_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 419, Short.MAX_VALUE)
-        );
-
-        jB_tornar.setText("Tornar");
-        jB_tornar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_tornarActionPerformed(evt);
-            }
-        });
+        jP_nouProducte = new javax.swing.JPanel();
+        jB_tornar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.CardLayout());
+
+        jB_editarProducte.setText("Editar Producte");
 
         jB_obtenirCataleg.setText("Obtenir Cataleg");
         jB_obtenirCataleg.addActionListener(new java.awt.event.ActionListener() {
@@ -76,36 +57,61 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jB_editarProducte.setText("Editar Producte");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jP_principalLayout = new javax.swing.GroupLayout(jP_principal);
+        jP_principal.setLayout(jP_principalLayout);
+        jP_principalLayout.setHorizontalGroup(
+            jP_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_principalLayout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addGroup(jP_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jB_editarProducte, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(jP_principalLayout.createSequentialGroup()
                         .addComponent(jB_nouProducte, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(85, 85, 85)
                         .addComponent(jB_obtenirCataleg, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
+        jP_principalLayout.setVerticalGroup(
+            jP_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_principalLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(jP_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jP_principalLayout.createSequentialGroup()
+                        .addGap(46, 46, 46)
                         .addComponent(jB_obtenirCataleg, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(jB_nouProducte, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jB_nouProducte, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
                 .addComponent(jB_editarProducte, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jP_principal, "card3");
+
+        jB_tornar.setText("Tornar");
+        jB_tornar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_tornarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jP_nouProducteLayout = new javax.swing.GroupLayout(jP_nouProducte);
+        jP_nouProducte.setLayout(jP_nouProducteLayout);
+        jP_nouProducteLayout.setHorizontalGroup(
+            jP_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_nouProducteLayout.createSequentialGroup()
+                .addContainerGap(490, Short.MAX_VALUE)
+                .addComponent(jB_tornar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
+        );
+        jP_nouProducteLayout.setVerticalGroup(
+            jP_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_nouProducteLayout.createSequentialGroup()
+                .addContainerGap(305, Short.MAX_VALUE)
+                .addComponent(jB_tornar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
+        );
+
+        getContentPane().add(jP_nouProducte, "card2");
 
         pack();
         setLocationRelativeTo(null);
@@ -116,24 +122,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_obtenirCatalegActionPerformed
 
     private void jB_nouProducteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_nouProducteActionPerformed
-        jF_nouProducte.getContentPane().add(jB_tornar);
-        jF_nouProducte.pack();
-        jB_tornar.setVisible(true);
-        jF_nouProducte.setSize(FrmPrincipal.getFrames()[0].getSize());
-        jF_nouProducte.setLocationRelativeTo(this);
-        jF_nouProducte.setVisible(true);
-        FrmPrincipal.getWindows()[0].setVisible(false);
+        this.setContentPane(jP_nouProducte);
+        jP_nouProducte.setVisible(true);
     }//GEN-LAST:event_jB_nouProducteActionPerformed
 
     private void jB_tornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_tornarActionPerformed
-        jF_nouProducte.setVisible(false);
-        FrmPrincipal.getWindows()[0].setVisible(true);
+        jP_nouProducte.setVisible(false);
+        this.setContentPane(jP_principal);
     }//GEN-LAST:event_jB_tornarActionPerformed
 
-    private void jF_nouProducteWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jF_nouProducteWindowClosing
-        FrmPrincipal.getWindows()[0].setVisible(true);
-    }//GEN-LAST:event_jF_nouProducteWindowClosing
-
+    private void tornar(Container c){
+        c.setVisible(true);
+        this.setContentPane(c);
+    }
     /**
      * @param args the command line arguments
      */
@@ -174,6 +175,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jB_nouProducte;
     private javax.swing.JButton jB_obtenirCataleg;
     private javax.swing.JButton jB_tornar;
-    private javax.swing.JFrame jF_nouProducte;
+    private javax.swing.JPanel jP_nouProducte;
+    private javax.swing.JPanel jP_principal;
     // End of variables declaration//GEN-END:variables
 }
