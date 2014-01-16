@@ -9,7 +9,9 @@ import java.awt.Component;
 import java.awt.Container;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -18,7 +20,8 @@ import javax.swing.JTextField;
  */
 public class FrmPrincipal extends javax.swing.JFrame {
 
-    private Container cActive;
+    private Container cActive, cParent;
+    private boolean afegirAtributs;
 
     /**
      * Creates new form FrmPrincipal
@@ -26,6 +29,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     public FrmPrincipal() {
         initComponents();
         cActive = this.getContentPane();
+        cParent = this.getContentPane();
+        afegirAtributs = false;
     }
 
     /**
@@ -36,6 +41,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jP_principal = new javax.swing.JPanel();
         jB_editarProducte = new javax.swing.JButton();
@@ -62,8 +68,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jTF_producteAnyCollita = new javax.swing.JTextField();
         jTF_productePreu = new javax.swing.JTextField();
         jTF_producteDataCata = new javax.swing.JTextField();
+        jP_afegirAtributsProducte = new javax.swing.JPanel();
         jP_editarProducte = new javax.swing.JPanel();
         jB_editarProduct = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -125,8 +134,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jP_nouProducte.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jP_nouProducte, org.jdesktop.beansbinding.ObjectProperty.create(), jP_nouProducte, org.jdesktop.beansbinding.BeanProperty.create("nextFocusableComponent"));
+        bindingGroup.addBinding(binding);
+
         jB_afegirAtributsProducte.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jB_afegirAtributsProducte.setText("Afegir atributs del Producte");
+        jB_afegirAtributsProducte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_afegirAtributsProducteActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Nom del vi:");
@@ -171,6 +188,17 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jTF_producteDataCata.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        javax.swing.GroupLayout jP_afegirAtributsProducteLayout = new javax.swing.GroupLayout(jP_afegirAtributsProducte);
+        jP_afegirAtributsProducte.setLayout(jP_afegirAtributsProducteLayout);
+        jP_afegirAtributsProducteLayout.setHorizontalGroup(
+            jP_afegirAtributsProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 878, Short.MAX_VALUE)
+        );
+        jP_afegirAtributsProducteLayout.setVerticalGroup(
+            jP_afegirAtributsProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 512, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jP_nouProducteLayout = new javax.swing.GroupLayout(jP_nouProducte);
         jP_nouProducte.setLayout(jP_nouProducteLayout);
         jP_nouProducteLayout.setHorizontalGroup(
@@ -197,7 +225,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     .addGroup(jP_nouProducteLayout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTF_producteDataCata, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE))
+                        .addComponent(jTF_producteDataCata, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE))
                     .addGroup(jP_nouProducteLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(jP_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,6 +239,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_nouProducteLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jB_afegirAtributsProducte, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jP_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jP_afegirAtributsProducte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jP_nouProducteLayout.setVerticalGroup(
             jP_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,42 +263,56 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     .addComponent(jTF_producteRegio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jP_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jP_nouProducteLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jB_afegirAtributsProducte, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jP_nouProducteLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(jP_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSP_varietatRaim, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jP_nouProducteLayout.createSequentialGroup()
                                 .addGap(8, 8, 8)
                                 .addComponent(jLabel5)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_nouProducteLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(27, 27, 27)
                         .addGroup(jP_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(jTF_producteDataCata, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(42, 42, 42)))
-                .addGroup(jP_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jP_nouProducteLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jB_afegirAtributsProducte, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jP_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTF_producteAlcohol, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4))))
+                            .addComponent(jTF_producteAlcohol, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addGroup(jP_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel8)
+                                .addComponent(jTF_producteDataCata, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(155, Short.MAX_VALUE))))
+            .addGroup(jP_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jP_afegirAtributsProducte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jB_editarProduct.setText("Editar Producte");
+
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setText("Nom del vi:");
 
         javax.swing.GroupLayout jP_editarProducteLayout = new javax.swing.GroupLayout(jP_editarProducte);
         jP_editarProducte.setLayout(jP_editarProducteLayout);
         jP_editarProducteLayout.setHorizontalGroup(
             jP_editarProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_editarProducteLayout.createSequentialGroup()
-                .addGap(0, 690, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jB_editarProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jP_editarProducteLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jLabel9)
+                .addGap(27, 27, 27)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(504, Short.MAX_VALUE))
         );
         jP_editarProducteLayout.setVerticalGroup(
             jP_editarProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_editarProducteLayout.createSequentialGroup()
-                .addGap(0, 345, Short.MAX_VALUE)
+                .addGap(51, 51, 51)
+                .addGroup(jP_editarProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 378, Short.MAX_VALUE)
                 .addComponent(jB_editarProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -277,7 +321,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jP_producteLayout.setHorizontalGroup(
             jP_producteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_producteLayout.createSequentialGroup()
-                .addContainerGap(704, Short.MAX_VALUE)
+                .addContainerGap(720, Short.MAX_VALUE)
                 .addComponent(jB_tornar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
             .addGroup(jP_producteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,12 +331,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
             .addGroup(jP_producteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jP_producteLayout.createSequentialGroup()
                     .addComponent(jP_editarProducte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 28, Short.MAX_VALUE)))
+                    .addGap(0, 20, Short.MAX_VALUE)))
         );
         jP_producteLayout.setVerticalGroup(
             jP_producteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_producteLayout.createSequentialGroup()
-                .addContainerGap(423, Short.MAX_VALUE)
+                .addContainerGap(524, Short.MAX_VALUE)
                 .addComponent(jB_tornar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
             .addGroup(jP_producteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,10 +346,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
             .addGroup(jP_producteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jP_producteLayout.createSequentialGroup()
                     .addComponent(jP_editarProducte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 106, Short.MAX_VALUE)))
+                    .addGap(0, 100, Short.MAX_VALUE)))
         );
 
         getContentPane().add(jP_producte, "card4");
+
+        bindingGroup.bind();
 
         pack();
         setLocationRelativeTo(null);
@@ -318,29 +364,80 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void jB_nouProducteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_nouProducteActionPerformed
         changeLayout(cActive = jP_nouProducte);
-
+        jTF_producteNom.requestFocus();
     }//GEN-LAST:event_jB_nouProducteActionPerformed
 
     private void jB_tornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_tornarActionPerformed
-        for (Component comp : cActive.getComponents()) {
-            if (comp.getClass() == JLabel.class || comp.getClass() == JButton.class) {
-                continue;
-            } else if (comp.getClass() == JTextField.class) {
-                System.out.println("textfield");
-            } else if (comp.getClass() == JScrollPane.class) {
-                System.out.println("textarea");
+        if (afegirAtributs) {
+            int opcio = JOptionPane.showConfirmDialog(null, "Segur que voleu tornar?\nS'esborraran les dades entrades.", "Tornar", JOptionPane.YES_NO_OPTION);
+            if (opcio == JOptionPane.YES_OPTION) {
+                changeLayout(cActive);
+                afegirAtributs = false;
+            }
+        } else {
+            boolean dadesEntrades = false;
+            for (Component comp : cActive.getComponents()) {
+                if (comp.getClass() == JLabel.class || comp.getClass() == JButton.class) {
+                    continue;
+                } else if (comp.getClass() == JTextField.class) {
+                    if (!((JTextField) comp).getText().equals("")) {
+                        dadesEntrades = true;
+                        break;
+                    }
+                } else if (comp.getClass() == JScrollPane.class) {
+                    //System.out.println(((JTextArea) ((JScrollPane) comp).getViewport().getComponent(0)).getText());
+                    for (Component cScroll : ((JScrollPane) comp).getViewport().getComponents()) {
+                        if (cScroll.getClass() == JTextArea.class) {
+                            if (!((JTextArea) cScroll).getText().equals("")) {
+                                dadesEntrades = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            if (dadesEntrades) {
+                int opcio = JOptionPane.showConfirmDialog(null, "Segur que voleu tornar?\nS'esborraran les dades entrades.", "Tornar", JOptionPane.YES_NO_OPTION);
+                if (opcio == JOptionPane.YES_OPTION) {
+                    for (Component comp : cActive.getComponents()) {
+                        if (comp.getClass() == JLabel.class || comp.getClass() == JButton.class) {
+                            continue;
+                        } else if (comp.getClass() == JTextField.class) {
+                            if (!((JTextField) comp).getText().equals("")) {
+                                ((JTextField) comp).setText("");
+                            }
+                        } else if (comp.getClass() == JScrollPane.class) {
+                            for (Component cScroll : ((JScrollPane) comp).getViewport().getComponents()) {
+                                if (cScroll.getClass() == JTextArea.class) {
+                                    if (!((JTextArea) cScroll).getText().equals("")) {
+                                        ((JTextArea) cScroll).setText(null);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    this.setContentPane(jP_principal);
+                    jP_principal.setVisible(true);
+                    cActive = jP_principal;
+                    dadesEntrades = false;
+                }
             } else {
-                System.out.println(comp.getName());
+                this.setContentPane(jP_principal);
+                jP_principal.setVisible(true);
+                cActive = jP_principal;
             }
         }
-        this.setContentPane(jP_principal);
-        jP_principal.setVisible(true);
-        cActive = jP_principal;
     }//GEN-LAST:event_jB_tornarActionPerformed
 
     private void jB_editarProducteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_editarProducteActionPerformed
         changeLayout(cActive = jP_editarProducte);
     }//GEN-LAST:event_jB_editarProducteActionPerformed
+
+    private void jB_afegirAtributsProducteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_afegirAtributsProducteActionPerformed
+        cParent = jP_producte;
+        changeLayout(jP_afegirAtributsProducte);
+        afegirAtributs = true;
+    }//GEN-LAST:event_jB_afegirAtributsProducteActionPerformed
 
     private void changeLayout(Container c) {
         for (Component comp : jP_producte.getComponents()) {
@@ -396,6 +493,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jB_nouProducte;
     private javax.swing.JButton jB_obtenirCataleg;
     private javax.swing.JButton jB_tornar;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -404,6 +502,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jP_afegirAtributsProducte;
     private javax.swing.JPanel jP_editarProducte;
     private javax.swing.JPanel jP_nouProducte;
     private javax.swing.JPanel jP_principal;
@@ -417,5 +517,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTF_productePreu;
     private javax.swing.JTextField jTF_producteRegio;
     private javax.swing.JTextField jTF_productorNom;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
