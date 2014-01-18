@@ -273,12 +273,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
                                 .addGap(8, 8, 8)
                                 .addComponent(jLabel5)))
                         .addGap(27, 27, 27)
-                        .addGroup(jP_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTF_producteAlcohol, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
+                        .addGroup(jP_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jP_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel8)
-                                .addComponent(jTF_producteDataCata, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTF_producteDataCata, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jP_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTF_producteAlcohol, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel4)))
                         .addContainerGap(155, Short.MAX_VALUE))))
             .addGroup(jP_nouProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jP_afegirAtributsProducte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -346,7 +347,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
             .addGroup(jP_producteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jP_producteLayout.createSequentialGroup()
                     .addComponent(jP_editarProducte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 100, Short.MAX_VALUE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         getContentPane().add(jP_producte, "card4");
@@ -368,64 +369,40 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_nouProducteActionPerformed
 
     private void jB_tornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_tornarActionPerformed
-        if (afegirAtributs) {
+        if (dadesEntrades()) {
             int opcio = JOptionPane.showConfirmDialog(null, "Segur que voleu tornar?\nS'esborraran les dades entrades.", "Tornar", JOptionPane.YES_NO_OPTION);
             if (opcio == JOptionPane.YES_OPTION) {
-                changeLayout(cActive);
-                afegirAtributs = false;
-            }
-        } else {
-            boolean dadesEntrades = false;
-            for (Component comp : cActive.getComponents()) {
-                if (comp.getClass() == JLabel.class || comp.getClass() == JButton.class) {
-                    continue;
-                } else if (comp.getClass() == JTextField.class) {
-                    if (!((JTextField) comp).getText().equals("")) {
-                        dadesEntrades = true;
-                        break;
-                    }
-                } else if (comp.getClass() == JScrollPane.class) {
-                    //System.out.println(((JTextArea) ((JScrollPane) comp).getViewport().getComponent(0)).getText());
-                    for (Component cScroll : ((JScrollPane) comp).getViewport().getComponents()) {
-                        if (cScroll.getClass() == JTextArea.class) {
-                            if (!((JTextArea) cScroll).getText().equals("")) {
-                                dadesEntrades = true;
-                                break;
-                            }
+                for (Component comp : cActive.getComponents()) {
+                    if (comp.getClass() == JLabel.class || comp.getClass() == JButton.class) {
+                        continue;
+                    } else if (comp.getClass() == JTextField.class) {
+                        if (!((JTextField) comp).getText().equals("")) {
+                            ((JTextField) comp).setText("");
                         }
-                    }
-                }
-            }
-            if (dadesEntrades) {
-                int opcio = JOptionPane.showConfirmDialog(null, "Segur que voleu tornar?\nS'esborraran les dades entrades.", "Tornar", JOptionPane.YES_NO_OPTION);
-                if (opcio == JOptionPane.YES_OPTION) {
-                    for (Component comp : cActive.getComponents()) {
-                        if (comp.getClass() == JLabel.class || comp.getClass() == JButton.class) {
-                            continue;
-                        } else if (comp.getClass() == JTextField.class) {
-                            if (!((JTextField) comp).getText().equals("")) {
-                                ((JTextField) comp).setText("");
-                            }
-                        } else if (comp.getClass() == JScrollPane.class) {
-                            for (Component cScroll : ((JScrollPane) comp).getViewport().getComponents()) {
-                                if (cScroll.getClass() == JTextArea.class) {
-                                    if (!((JTextArea) cScroll).getText().equals("")) {
-                                        ((JTextArea) cScroll).setText(null);
-                                    }
+                    } else if (comp.getClass() == JScrollPane.class) {
+                        for (Component cScroll : ((JScrollPane) comp).getViewport().getComponents()) {
+                            if (cScroll.getClass() == JTextArea.class) {
+                                if (!((JTextArea) cScroll).getText().equals("")) {
+                                    ((JTextArea) cScroll).setText(null);
                                 }
                             }
                         }
                     }
-                    this.setContentPane(jP_principal);
-                    jP_principal.setVisible(true);
-                    cActive = jP_principal;
-                    dadesEntrades = false;
                 }
-            } else {
                 this.setContentPane(jP_principal);
                 jP_principal.setVisible(true);
                 cActive = jP_principal;
             }
+        } else {
+            //arreglar aixo
+            if(jP_nouProducte.isActive()){
+                System.out.println("1");
+            }else{
+                System.out.println("2");
+            }
+            this.setContentPane(jP_principal);
+            jP_principal.setVisible(true);
+            cActive = jP_principal;
         }
     }//GEN-LAST:event_jB_tornarActionPerformed
 
@@ -438,6 +415,35 @@ public class FrmPrincipal extends javax.swing.JFrame {
         changeLayout(jP_afegirAtributsProducte);
         afegirAtributs = true;
     }//GEN-LAST:event_jB_afegirAtributsProducteActionPerformed
+
+    private boolean dadesEntrades() {
+        boolean dadesEntrades = false;
+        for (Component comp : cActive.getComponents()) {
+            if (comp.getClass() == JLabel.class || comp.getClass() == JButton.class) {
+                continue;
+            } else if (comp.getClass() == JTextField.class) {
+                if (!((JTextField) comp).getText().equals("")) {
+                    dadesEntrades = true;
+                    break;
+                }
+            } else if (comp.getClass() == JScrollPane.class) {
+                //System.out.println(((JTextArea) ((JScrollPane) comp).getViewport().getComponent(0)).getText());
+                for (Component cScroll : ((JScrollPane) comp).getViewport().getComponents()) {
+                    if (cScroll.getClass() == JTextArea.class) {
+                        if (!((JTextArea) cScroll).getText().equals("")) {
+                            dadesEntrades = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return dadesEntrades;
+    }
+
+    private void natejarPantalla() {
+
+    }
 
     private void changeLayout(Container c) {
         for (Component comp : jP_producte.getComponents()) {
