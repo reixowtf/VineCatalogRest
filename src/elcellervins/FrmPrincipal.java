@@ -9,7 +9,10 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.util.ArrayList;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -237,6 +240,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel10.setText("Tipus de Vi:");
 
         jCB_producteTipusVi.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jCB_producteTipusVi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Negre", "Blanc", "Rosat", "Espumós" }));
+        jCB_producteTipusVi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCB_producteTipusViActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jP_nouProducteLayout = new javax.swing.GroupLayout(jP_nouProducte);
         jP_nouProducte.setLayout(jP_nouProducteLayout);
@@ -337,7 +346,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jP_editarProducteLayout.setHorizontalGroup(
             jP_editarProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_editarProducteLayout.createSequentialGroup()
-                .addGap(0, 714, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jB_editarProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jP_editarProducteLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
@@ -345,12 +354,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     .addGroup(jP_editarProducteLayout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
-                        .addComponent(jCB_producteNom, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jCB_producteNom, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jP_editarProducteLayout.createSequentialGroup()
                         .addComponent(jLabel23)
                         .addGap(18, 18, 18)
-                        .addComponent(jCB_producteAtrEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jCB_producteAtrEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86))))
         );
         jP_editarProducteLayout.setVerticalGroup(
             jP_editarProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -645,6 +655,30 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_tornarActionPerformed
 
     private void jB_editarProducteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_editarProducteActionPerformed
+        SortedSet<String> cTLabel = new TreeSet<>();
+        for (Component c : jP_afegirAtributsProducte.getComponents()) {
+            if (c.getClass() == JLabel.class) {
+                if (!(((JLabel) c).getText().equalsIgnoreCase("") || ((JLabel) c).getText().equalsIgnoreCase(null))) {
+                    if (((JLabel) c).getText().substring(0, 1).equalsIgnoreCase("*")) {
+                        cTLabel.add(((JLabel) c).getText().substring(1, ((JLabel) c).getText().length() - 1));
+                    } else {
+                        cTLabel.add(((JLabel) c).getText().substring(0, ((JLabel) c).getText().length() - 1));
+                    }
+                }
+            }
+        }
+        for (Component c : jP_nouProducte.getComponents()) {
+            if (c.getClass() == JLabel.class) {
+                if (!(((JLabel) c).getText().equalsIgnoreCase("") || ((JLabel) c).getText().equalsIgnoreCase(null))) {
+                    if (((JLabel) c).getText().substring(0, 1).equalsIgnoreCase("*")) {
+                        cTLabel.add(((JLabel) c).getText().substring(1, ((JLabel) c).getText().length() - 1));
+                    } else {
+                        cTLabel.add(((JLabel) c).getText().substring(0, ((JLabel) c).getText().length() - 1));
+                    }
+                }
+            }
+        }
+        jCB_producteAtrEditar.setModel(new DefaultComboBoxModel(cTLabel.toArray()));
         changeLayout(pActive = jP_editarProducte);
         pParent = jB_editarProduct;
     }//GEN-LAST:event_jB_editarProducteActionPerformed
@@ -672,6 +706,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
             colorejarCamps(colorejarBorders, BorderFactory.createLineBorder(Color.RED));
         }
     }//GEN-LAST:event_jB_generarProducteActionPerformed
+
+    private void jCB_producteTipusViActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB_producteTipusViActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCB_producteTipusViActionPerformed
 
     //Natejar tots els valors entrats
     private void natejarPantalla() {
@@ -716,6 +754,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     //El paràmetre d'entrada és/són els components obtatius que no caldrà que estiguin marcats per continuar
     private boolean campsOmplerts(Component[] obtatiu) {
+        colorejarCamps(colorejarBorders, defaultBorder);
+        colorejarBorders.clear();
         boolean omplerts = true;
         for (Component comp : pActive.getComponents()) {
             if (obtatiu(obtatiu, comp) || comp.getClass() == JLabel.class || comp.getClass() == JButton.class) {
