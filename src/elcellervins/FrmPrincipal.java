@@ -8,6 +8,7 @@ package elcellervins;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
+import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -15,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
 
 /**
  *
@@ -22,17 +24,22 @@ import javax.swing.JTextField;
  */
 public class FrmPrincipal extends javax.swing.JFrame {
 
-    private Container cActive, cParent;
+    private Container pActive, pParent;
     private String matchSpace;
+    private ArrayList<Component> colorejarBorders;
+    private Border defaultBorder;
 
     /**
      * Creates new form FrmPrincipal
      */
     public FrmPrincipal() {
         initComponents();
-        cActive = this.getContentPane();
-        cParent = this.getContentPane();
+        pActive = this.getContentPane();
+        pParent = this.getContentPane();
         matchSpace = "^\\s*$";
+        colorejarBorders = new ArrayList<>();
+        defaultBorder = jTA_producteAtrAromes.getBorder();
+        jL_campsBuits.setVisible(false);
     }
 
     /**
@@ -75,8 +82,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jCB_producteTipusVi = new javax.swing.JComboBox();
         jP_editarProducte = new javax.swing.JPanel();
         jB_editarProduct = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
+        jCB_producteNom = new javax.swing.JComboBox();
         jLabel9 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jCB_producteAtrEditar = new javax.swing.JComboBox();
         jP_afegirAtributsProducte = new javax.swing.JPanel();
         jCB_producteAtrPofunditat = new javax.swing.JComboBox();
         jCB_producteAtrSecDols = new javax.swing.JComboBox();
@@ -106,6 +115,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jTA_producteAtrConclusions = new javax.swing.JTextArea();
         jSP_producteAtrSabors = new javax.swing.JScrollPane();
         jTA_producteAtrSabors = new javax.swing.JTextArea();
+        jL_campsBuits = new javax.swing.JLabel();
 
         jCB_producteIntensitatAroma5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -144,7 +154,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     .addComponent(jB_nouProducte, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(112, 112, 112)
                 .addComponent(jB_obtenirCataleg, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addContainerGap(298, Short.MAX_VALUE))
         );
         jP_principalLayout.setVerticalGroup(
             jP_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,7 +165,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     .addComponent(jB_obtenirCataleg, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
                 .addComponent(jB_editarProducte, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(278, Short.MAX_VALUE))
+                .addContainerGap(374, Short.MAX_VALUE))
         );
 
         getContentPane().add(jP_principal, "card3");
@@ -312,33 +322,48 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jB_editarProduct.setText("Editar Producte");
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jCB_producteNom.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel9.setText("Nom del vi:");
+        jLabel9.setText("Nom:");
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel23.setText("Atribut a editar:");
+
+        jCB_producteAtrEditar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jP_editarProducteLayout = new javax.swing.GroupLayout(jP_editarProducte);
         jP_editarProducte.setLayout(jP_editarProducteLayout);
         jP_editarProducteLayout.setHorizontalGroup(
             jP_editarProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_editarProducteLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 714, Short.MAX_VALUE)
                 .addComponent(jB_editarProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jP_editarProducteLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLabel9)
-                .addGap(27, 27, 27)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(504, Short.MAX_VALUE))
+                .addGap(55, 55, 55)
+                .addGroup(jP_editarProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jP_editarProducteLayout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(jCB_producteNom, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jP_editarProducteLayout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addGap(18, 18, 18)
+                        .addComponent(jCB_producteAtrEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jP_editarProducteLayout.setVerticalGroup(
             jP_editarProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_editarProducteLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(44, 44, 44)
                 .addGroup(jP_editarProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCB_producteNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 378, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
+                .addGroup(jP_editarProducteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(jCB_producteAtrEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 336, Short.MAX_VALUE)
                 .addComponent(jB_editarProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -524,45 +549,53 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel21)))
         );
 
+        jL_campsBuits.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jL_campsBuits.setForeground(new java.awt.Color(255, 0, 0));
+        jL_campsBuits.setText("*Falten camps per omplir.");
+
         javax.swing.GroupLayout jP_producteLayout = new javax.swing.GroupLayout(jP_producte);
         jP_producte.setLayout(jP_producteLayout);
         jP_producteLayout.setHorizontalGroup(
             jP_producteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_producteLayout.createSequentialGroup()
-                .addContainerGap(720, Short.MAX_VALUE)
+                .addGap(131, 131, 131)
+                .addComponent(jL_campsBuits, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 269, Short.MAX_VALUE)
                 .addComponent(jB_tornar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
             .addGroup(jP_producteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jP_producteLayout.createSequentialGroup()
                     .addComponent(jP_nouProducte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 18, Short.MAX_VALUE)))
+                    .addGap(0, 17, Short.MAX_VALUE)))
             .addGroup(jP_producteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jP_producteLayout.createSequentialGroup()
                     .addComponent(jP_editarProducte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 20, Short.MAX_VALUE)))
+                    .addGap(0, 19, Short.MAX_VALUE)))
             .addGroup(jP_producteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jP_producteLayout.createSequentialGroup()
                     .addComponent(jP_afegirAtributsProducte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 18, Short.MAX_VALUE)))
+                    .addGap(0, 17, Short.MAX_VALUE)))
         );
         jP_producteLayout.setVerticalGroup(
             jP_producteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_producteLayout.createSequentialGroup()
-                .addContainerGap(524, Short.MAX_VALUE)
-                .addComponent(jB_tornar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jP_producteLayout.createSequentialGroup()
+                .addContainerGap(519, Short.MAX_VALUE)
+                .addGroup(jP_producteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jB_tornar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jL_campsBuits))
                 .addGap(25, 25, 25))
             .addGroup(jP_producteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jP_producteLayout.createSequentialGroup()
                     .addComponent(jP_nouProducte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 103, Short.MAX_VALUE)))
+                    .addGap(0, 98, Short.MAX_VALUE)))
             .addGroup(jP_producteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jP_producteLayout.createSequentialGroup()
                     .addComponent(jP_editarProducte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 95, Short.MAX_VALUE)))
             .addGroup(jP_producteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jP_producteLayout.createSequentialGroup()
                     .addComponent(jP_afegirAtributsProducte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 102, Short.MAX_VALUE)))
+                    .addGap(0, 97, Short.MAX_VALUE)))
         );
 
         getContentPane().add(jP_producte, "card4");
@@ -579,24 +612,24 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_obtenirCatalegActionPerformed
 
     private void jB_nouProducteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_nouProducteActionPerformed
-        changeLayout(cActive = jP_nouProducte);
+        changeLayout(pActive = jP_nouProducte);
         jTF_producteNom.requestFocus();
-        cParent = jP_nouProducte;
+        pParent = jP_nouProducte;
     }//GEN-LAST:event_jB_nouProducteActionPerformed
 
     private void jB_tornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_tornarActionPerformed
         //Expressió regular per verificar que les dades entrades son correctes (només lletres i espais)
         //^((\\w)+[\\s]?)+$
-        if (dadesEntrades()) {
+        if (campsOmplerts()) {
             int opcio = JOptionPane.showConfirmDialog(null, "Segur que voleu tornar?\nS'esborraran les dades entrades.", "Tornar", JOptionPane.YES_NO_OPTION);
             if (opcio == JOptionPane.YES_OPTION) {
                 natejarPantalla();
                 if (jP_nouProducte.isShowing() || jP_editarProducte.isShowing()) {
                     this.setContentPane(jP_principal);
                     jP_principal.setVisible(true);
-                    cActive = jP_principal;
+                    pActive = jP_principal;
                 } else {
-                    changeLayout(cActive = cParent);
+                    changeLayout(pActive = pParent);
                 }
             }
         } else {
@@ -604,25 +637,24 @@ public class FrmPrincipal extends javax.swing.JFrame {
             if (jP_nouProducte.isShowing() || jP_editarProducte.isShowing()) {
                 this.setContentPane(jP_principal);
                 jP_principal.setVisible(true);
-                cActive = jP_principal;
+                pActive = jP_principal;
             } else {
-                changeLayout(cActive = cParent);
+                changeLayout(pActive = pParent);
             }
         }
     }//GEN-LAST:event_jB_tornarActionPerformed
 
     private void jB_editarProducteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_editarProducteActionPerformed
-        changeLayout(cActive = jP_editarProducte);
-        cParent = jB_editarProduct;
+        changeLayout(pActive = jP_editarProducte);
+        pParent = jB_editarProduct;
     }//GEN-LAST:event_jB_editarProducteActionPerformed
 
     private void jB_afegirAtributsProducteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_afegirAtributsProducteActionPerformed
         if (campsOmplerts(new Component[]{jTF_producteDataCata, jTF_producteAnyCollita, jTF_productePreu})) {
-            changeLayout(cActive = jP_afegirAtributsProducte);
+            jL_campsBuits.setVisible(false);
+            changeLayout(pActive = jP_afegirAtributsProducte);
         } else {
-            jTF_producteNom.setBorder(BorderFactory.createLineBorder(Color.RED));
-            System.out.println("falten camps per omplir");
-            //TODO: Mostrar en vermell els camps que falten per omplir i un missatge dient que s'han d'omplir tots
+            colorejarCamps(colorejarBorders, BorderFactory.createLineBorder(Color.RED));
         }
     }//GEN-LAST:event_jB_afegirAtributsProducteActionPerformed
 
@@ -632,42 +664,18 @@ public class FrmPrincipal extends javax.swing.JFrame {
             if (opcio == JOptionPane.YES_OPTION) {
                 //TODO: Fer tot el guardat de dades
                 natejarPantalla();
-                changeLayout(cActive = cParent);
+                changeLayout(pActive = pParent);
                 natejarPantalla();
                 System.out.println("guardat");
             }
         } else {
-            System.out.println("falten camps per omplir");
-            //TODO: Mostrar en vermell els camps que falten per omplir i un missatge dient que s'han d'omplir tots
+            colorejarCamps(colorejarBorders, BorderFactory.createLineBorder(Color.RED));
         }
     }//GEN-LAST:event_jB_generarProducteActionPerformed
 
-    //Comprovació de si totes les dades estan entrades en tots els camps.
-    private boolean dadesEntrades() {
-        for (Component comp : cActive.getComponents()) {
-            if (comp.getClass() == JLabel.class || comp.getClass() == JButton.class) {
-                continue;
-            } else if (comp.getClass() == JTextField.class) {
-                if (!((((JTextField) comp).getText()).matches(matchSpace))) {
-                    return true;
-                }
-            } else if (comp.getClass() == JScrollPane.class) {
-                //System.out.println(((JTextArea) ((JScrollPane) comp).getViewport().getComponent(0)).getText());
-                for (Component cScroll : ((JScrollPane) comp).getViewport().getComponents()) {
-                    if (cScroll.getClass() == JTextArea.class) {
-                        if (!((JTextArea) cScroll).getText().matches(matchSpace)) {
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
     //Natejar tots els valors entrats
     private void natejarPantalla() {
-        for (Component comp : cActive.getComponents()) {
+        for (Component comp : pActive.getComponents()) {
             if (comp.getClass() == JLabel.class || comp.getClass() == JButton.class) {
                 continue;
             } else if (comp.getClass() == JTextField.class) {
@@ -680,28 +688,55 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 }
             }
         }
+        colorejarCamps(colorejarBorders, defaultBorder);
+        colorejarBorders.clear();
     }
 
-    //El paràmetre d'entrada és/són els components obtatius que no caldrà que estiguin marcats per continuar
-    private boolean campsOmplerts(Component[] obtatiu) {
-        for (Component comp : cActive.getComponents()) {
-            if (obtatiu(obtatiu, comp) || comp.getClass() == JLabel.class || comp.getClass() == JButton.class) {
+    //Comprovació de si totes les dades estan entrades en tots els camps.
+    private boolean campsOmplerts() {
+        for (Component comp : pActive.getComponents()) {
+            if (comp.getClass() == JLabel.class || comp.getClass() == JButton.class) {
                 continue;
             } else if (comp.getClass() == JTextField.class) {
-                if (((JTextField) comp).getText().matches(matchSpace)) {
-                    return false;
+                if (!((JTextField) comp).getText().matches(matchSpace)) {
+                    return true;
                 }
             } else if (comp.getClass() == JScrollPane.class) {
                 for (Component cScroll : ((JScrollPane) comp).getViewport().getComponents()) {
                     if (cScroll.getClass() == JTextArea.class) {
-                        if ((((JTextArea) cScroll).getText()).matches(matchSpace)) {
-                            return false;
+                        if (!(((JTextArea) cScroll).getText()).matches(matchSpace)) {
+                            return true;
                         }
                     }
                 }
             }
         }
-        return true;
+        return false;
+    }
+
+    //El paràmetre d'entrada és/són els components obtatius que no caldrà que estiguin marcats per continuar
+    private boolean campsOmplerts(Component[] obtatiu) {
+        boolean omplerts = true;
+        for (Component comp : pActive.getComponents()) {
+            if (obtatiu(obtatiu, comp) || comp.getClass() == JLabel.class || comp.getClass() == JButton.class) {
+                continue;
+            } else if (comp.getClass() == JTextField.class) {
+                if (((JTextField) comp).getText().matches(matchSpace)) {
+                    omplerts = false;
+                    colorejarBorders.add(comp);
+                }
+            } else if (comp.getClass() == JScrollPane.class) {
+                for (Component cScroll : ((JScrollPane) comp).getViewport().getComponents()) {
+                    if (cScroll.getClass() == JTextArea.class) {
+                        if ((((JTextArea) cScroll).getText()).matches(matchSpace)) {
+                            omplerts = false;
+                            colorejarBorders.add(cScroll);
+                        }
+                    }
+                }
+            }
+        }
+        return omplerts;
     }
 
     private boolean obtatiu(Component[] obtatiu, Component comp) {
@@ -713,10 +748,22 @@ public class FrmPrincipal extends javax.swing.JFrame {
         return false;
     }
 
-    private void colorejarCampsBuits(){
-        
+    //Coloreja els camps que estan buits
+    private void colorejarCamps(ArrayList<Component> c, Border bF) {
+        for (Component comp : c) {
+            if (comp.getClass() == JTextField.class) {
+                ((JTextField) comp).setBorder(bF);
+            } else if (comp.getClass() == JTextArea.class) {
+                ((JTextArea) comp).setBorder(bF);
+            }
+        }
+        if (bF.equals(defaultBorder)) {
+            jL_campsBuits.setVisible(false);
+        } else {
+            jL_campsBuits.setVisible(true);
+        }
     }
-    
+
     private void changeLayout(Container c) {
         for (Component comp : jP_producte.getComponents()) {
             if (comp.equals(c)) {
@@ -774,6 +821,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jB_tornar;
     private javax.swing.JComboBox jCB_producteAtrAcidez;
     private javax.swing.JComboBox jCB_producteAtrCos;
+    private javax.swing.JComboBox jCB_producteAtrEditar;
     private javax.swing.JComboBox jCB_producteAtrIntensitaSabor;
     private javax.swing.JComboBox jCB_producteAtrIntensitatAroma;
     private javax.swing.JComboBox jCB_producteAtrNetedat;
@@ -782,8 +830,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox jCB_producteAtrTempsBoca;
     private javax.swing.JComboBox jCB_producteAtrTonalitat;
     private javax.swing.JComboBox jCB_producteIntensitatAroma5;
+    private javax.swing.JComboBox jCB_producteNom;
     private javax.swing.JComboBox jCB_producteTipusVi;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JLabel jL_campsBuits;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -799,6 +848,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
