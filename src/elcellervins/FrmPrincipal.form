@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-  <NonVisualComponents>
-    <Component class="javax.swing.JComboBox" name="jCB_producteIntensitatAroma5">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
-        </Property>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
-        </Property>
-      </Properties>
-    </Component>
-  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -195,12 +183,12 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jL_producteNom" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jL_productorNom" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jL_varietatRaim" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jL_producteAlcohol" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_producteTipusVi" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -212,19 +200,19 @@
                                   <Component id="jCB_producteTipusVi" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_producteRegio" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                              <Component id="jL_producteDataCata" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                               <Component id="jTF_producteDataCata" pref="274" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_producteAnyCollita" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_productePreu" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -247,25 +235,25 @@
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTF_producteNom" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_producteNom" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_producteAnyCollita" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTF_producteAnyCollita" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_productorNom" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTF_productorNom" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_productePreu" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTF_productePreu" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_producteRegio" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTF_producteRegio" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_producteTipusVi" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jCB_producteTipusVi" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="30" max="32767" attributes="0"/>
@@ -273,14 +261,14 @@
                           <Component id="jSP_varietatRaim" min="-2" pref="122" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <Component id="jL_varietatRaim" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTF_producteAlcohol" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_producteAlcohol" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_producteDataCata" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTF_producteDataCata" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
@@ -290,68 +278,76 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="jL_producteNom">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nom del vi:"/>
+                <Property name="name" type="java.lang.String" value="jL_producteNom" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="jL_productorNom">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Productor:"/>
+                <Property name="name" type="java.lang.String" value="jL_productorNom" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="jL_producteRegio">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Regi&#xf3;:"/>
+                <Property name="name" type="java.lang.String" value="jL_producteRegio" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="jL_producteAlcohol">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Alcohol:"/>
+                <Property name="name" type="java.lang.String" value="jL_producteAlcohol" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="jL_varietatRaim">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Varietat de ra&#xef;m:"/>
+                <Property name="name" type="java.lang.String" value="jL_varietatRaim" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel6">
+            <Component class="javax.swing.JLabel" name="jL_producteAnyCollita">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="*Any collita:"/>
+                <Property name="name" type="java.lang.String" value="jL_producteAnyCollita" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel7">
+            <Component class="javax.swing.JLabel" name="jL_productePreu">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="*Preu:"/>
+                <Property name="name" type="java.lang.String" value="jL_productePreu" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel8">
+            <Component class="javax.swing.JLabel" name="jL_producteDataCata">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="*Data de la cata:"/>
+                <Property name="name" type="java.lang.String" value="jL_producteDataCata" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTF_producteNom">
@@ -359,6 +355,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jTF_producteNom" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTF_productorNom">
@@ -366,6 +363,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jTF_productorNom" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTF_producteRegio">
@@ -373,9 +371,13 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jTF_producteRegio" noResource="true"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jSP_varietatRaim">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSP_varietatRaim" noResource="true"/>
+              </Properties>
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
@@ -389,6 +391,7 @@
                       <Font name="Tahoma" size="13" style="0"/>
                     </Property>
                     <Property name="rows" type="int" value="5"/>
+                    <Property name="name" type="java.lang.String" value="jTA_varietatRaim" noResource="true"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -398,6 +401,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jTF_producteAlcohol" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTF_producteAnyCollita">
@@ -405,6 +409,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jTF_producteAnyCollita" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTF_productePreu">
@@ -412,6 +417,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jTF_productePreu" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTF_producteDataCata">
@@ -419,6 +425,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jTF_producteDataCata" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jB_afegirAtributsProducte">
@@ -432,12 +439,13 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_afegirAtributsProducteActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel10">
+            <Component class="javax.swing.JLabel" name="jL_producteTipusVi">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Tipus de Vi:"/>
+                <Property name="name" type="java.lang.String" value="jL_producteTipusVi" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="jCB_producteTipusVi">
@@ -453,6 +461,7 @@
                     <StringItem index="3" value="Espum&#xf3;s"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jCB_producteTipusVi" noResource="true"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCB_producteTipusViActionPerformed"/>
@@ -700,6 +709,9 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jP_afegirAtributsProducte">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="" noResource="true"/>
+          </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -709,10 +721,10 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_producteAtrPofunditat" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jL_producteAtrNetedat" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jL_producteAtrTonalitat" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
@@ -729,14 +741,14 @@
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jL_producteAtrAromes" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jL_producteAtrIntensitatAroma" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jL_producteAtrConclusions" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -755,14 +767,14 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_producteAtrSabors" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel15" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel17" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel16" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jL_producteAtrIntensitaSabor" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jL_producteAtrSecDols" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jL_producteAtrAcidez" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jL_producteAtrCos" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jLabel19" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_producteAtrTempsBoca" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -790,50 +802,50 @@
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jCB_producteAtrPofunditat" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_producteAtrPofunditat" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_producteAtrSecDols" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jCB_producteAtrSecDols" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jCB_producteAtrTonalitat" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_producteAtrTonalitat" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_producteAtrCos" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jCB_producteAtrCos" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_producteAtrNetedat" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jCB_producteAtrNetedat" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_producteAtrAcidez" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jCB_producteAtrAcidez" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jCB_producteAtrIntensitatAroma" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_producteAtrIntensitatAroma" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_producteAtrIntensitaSabor" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jCB_producteAtrIntensitaSabor" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jSP_producteAtrAromes" min="-2" pref="109" max="-2" attributes="0"/>
-                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_producteAtrAromes" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_producteAtrSabors" min="-2" max="-2" attributes="0"/>
                           <Component id="jSP_producteAtrSabors" min="-2" pref="109" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="27" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_producteAtrTempsBoca" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jCB_producteAtrTempsBoca" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                               <Component id="jB_generarProducte" min="-2" pref="66" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jSP_producteAtrConclusions" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
-                          <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_producteAtrConclusions" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -848,6 +860,7 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jCB_producteAtrPofunditat" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="jCB_producteAtrSecDols">
@@ -858,102 +871,115 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jCB_producteAtrSecDols" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel11">
+            <Component class="javax.swing.JLabel" name="jL_producteAtrPofunditat">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Profunditat:"/>
+                <Property name="name" type="java.lang.String" value="jL_producteAtrPofunditat" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel12">
+            <Component class="javax.swing.JLabel" name="jL_producteAtrNetedat">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Netedat:"/>
+                <Property name="name" type="java.lang.String" value="jL_producteAtrNetedat" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel13">
+            <Component class="javax.swing.JLabel" name="jL_producteAtrTonalitat">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Tonalitat:"/>
+                <Property name="name" type="java.lang.String" value="jL_producteAtrTonalitat" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel14">
+            <Component class="javax.swing.JLabel" name="jL_producteAtrAromes">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="*Aromes:"/>
+                <Property name="name" type="java.lang.String" value="jL_producteAtrAromes" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel15">
+            <Component class="javax.swing.JLabel" name="jL_producteAtrSecDols">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sec/Dol&#xe7;:"/>
+                <Property name="name" type="java.lang.String" value="jL_producteAtrSecDols" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel16">
+            <Component class="javax.swing.JLabel" name="jL_producteAtrCos">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cos:"/>
+                <Property name="name" type="java.lang.String" value="jL_producteAtrCos" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel17">
+            <Component class="javax.swing.JLabel" name="jL_producteAtrAcidez">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Acidez:"/>
+                <Property name="name" type="java.lang.String" value="jL_producteAtrAcidez" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel18">
+            <Component class="javax.swing.JLabel" name="jL_producteAtrIntensitatAroma">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Intensitat de l&apos;aroma:"/>
+                <Property name="name" type="java.lang.String" value="jL_producteAtrIntensitatAroma" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel19">
+            <Component class="javax.swing.JLabel" name="jL_producteAtrTempsBoca">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Temps en boca:"/>
+                <Property name="name" type="java.lang.String" value="jL_producteAtrTempsBoca" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel20">
+            <Component class="javax.swing.JLabel" name="jL_producteAtrIntensitaSabor">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Intensitat del sabor:"/>
+                <Property name="name" type="java.lang.String" value="jL_producteAtrIntensitaSabor" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel21">
+            <Component class="javax.swing.JLabel" name="jL_producteAtrConclusions">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="*Conclusions/Opinions:"/>
+                <Property name="name" type="java.lang.String" value="jL_producteAtrConclusions" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel22">
+            <Component class="javax.swing.JLabel" name="jL_producteAtrSabors">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="*Sabors:"/>
+                <Property name="name" type="java.lang.String" value="jL_producteAtrSabors" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jB_generarProducte">
@@ -976,6 +1002,7 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jCB_producteAtrTonalitat" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="jCB_producteAtrNetedat">
@@ -986,6 +1013,7 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jCB_producteAtrNetedat" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="jCB_producteAtrIntensitatAroma">
@@ -996,6 +1024,7 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jCB_producteAtrIntensitatAroma" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="jCB_producteAtrCos">
@@ -1006,6 +1035,7 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jCB_producteAtrCos" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="jCB_producteAtrAcidez">
@@ -1016,6 +1046,7 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jCB_producteAtrAcidez" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="jCB_producteAtrIntensitaSabor">
@@ -1026,6 +1057,7 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jCB_producteAtrIntensitaSabor" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="jCB_producteAtrTempsBoca">
@@ -1036,9 +1068,13 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jCB_producteAtrTempsBoca" noResource="true"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jSP_producteAtrAromes">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSP_producteAtrAromes" noResource="true"/>
+              </Properties>
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
@@ -1049,11 +1085,15 @@
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
+                    <Property name="name" type="java.lang.String" value="jTA_producteAtrAromes" noResource="true"/>
                   </Properties>
                 </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JScrollPane" name="jSP_producteAtrConclusions">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSP_producteAtrConclusions" noResource="true"/>
+              </Properties>
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
@@ -1064,11 +1104,15 @@
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
+                    <Property name="name" type="java.lang.String" value="jTA_producteAtrConclusions" noResource="true"/>
                   </Properties>
                 </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JScrollPane" name="jSP_producteAtrSabors">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSP_producteAtrSabors" noResource="true"/>
+              </Properties>
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
@@ -1079,6 +1123,7 @@
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
+                    <Property name="name" type="java.lang.String" value="jTA_producteAtrSabors" noResource="true"/>
                   </Properties>
                 </Component>
               </SubComponents>
