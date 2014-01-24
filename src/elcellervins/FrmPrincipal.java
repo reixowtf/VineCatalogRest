@@ -784,18 +784,29 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jCB_producteTipusViActionPerformed
 
     private void jCB_producteAtrEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB_producteAtrEditarActionPerformed
-        System.out.println(jCB_producteAtrEditar.getSelectedItem());
+        System.out.println(jCB_producteAtrEditar.getSelectedItem());                                                  
+       // System.out.println(jCB_producteAtrEditar.getSelectedItem().getClass());
+        /*
+        if(jCB_producteAtrEditar.getSelectedItem().getClass() == JTextField.class){
+            jP_atributEditarProducte.setVisible(true);
+            jP_atributEditarProducteTF.setVisible(true);
+        }*/
     }//GEN-LAST:event_jCB_producteAtrEditarActionPerformed
 
-    private SortedSet<String> obtenirLabels(){
-        SortedSet<String> cTLabel = new TreeSet<>();
+    //private SortedSet<String> obtenirLabels(){
+    private SortedSet<JLabel> obtenirLabels(){
+        //SortedSet<String> cTLabel = new TreeSet<>();
+        SortedSet<JLabel> cTL = new TreeSet<>();
+       // cTLabel.add("");
         for (Component c : jP_afegirAtributsProducte.getComponents()) {
             if (c.getClass() == JLabel.class) {
                 if (!(((JLabel) c).getText().equalsIgnoreCase("") || ((JLabel) c).getText().equalsIgnoreCase(null))) {
                     if (((JLabel) c).getText().substring(0, 1).equalsIgnoreCase("*")) {
-                        cTLabel.add(((JLabel) c).getText().substring(1, ((JLabel) c).getText().length() - 1));
+                        //cTLabel.add(((JLabel) c).getText().substring(1, ((JLabel) c).getText().length() - 1));
+                        cTL.add(((JLabel) c));
                     } else {
-                        cTLabel.add(((JLabel) c).getText().substring(0, ((JLabel) c).getText().length() - 1));
+                       // cTLabel.add(((JLabel) c).getText().substring(0, ((JLabel) c).getText().length() - 1));
+                        cTL.add(((JLabel) c));
                     }
                 }
             }
@@ -804,14 +815,17 @@ public class FrmPrincipal extends javax.swing.JFrame {
             if (c.getClass() == JLabel.class) {
                 if (!(((JLabel) c).getText().equalsIgnoreCase("") || ((JLabel) c).getText().equalsIgnoreCase(null))) {
                     if (((JLabel) c).getText().substring(0, 1).equalsIgnoreCase("*")) {
-                        cTLabel.add(((JLabel) c).getText().substring(1, ((JLabel) c).getText().length() - 1));
+                        //cTLabel.add(((JLabel) c).getText().substring(1, ((JLabel) c).getText().length() - 1));
+                        cTL.add(((JLabel) c));
                     } else {
-                        cTLabel.add(((JLabel) c).getText().substring(0, ((JLabel) c).getText().length() - 1));
+                        //cTLabel.add(((JLabel) c).getText().substring(0, ((JLabel) c).getText().length() - 1));
+                        cTL.add(((JLabel) c));
                     }
                 }
             }
         }
-        return cTLabel;
+        //return cTLabel;
+        return cTL;
     }
     
     //Natejar tots els valors entrats
