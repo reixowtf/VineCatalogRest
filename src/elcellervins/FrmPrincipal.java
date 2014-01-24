@@ -837,15 +837,35 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jCB_producteTipusViActionPerformed
 
     private void jCB_producteAtrEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB_producteAtrEditarActionPerformed
-        System.out.println(jCB_producteAtrEditar.getSelectedItem());
-        String a = obtenirAtributEscollit(jCB_producteAtrEditar.getSelectedItem().toString());
-        JComponent jc = obtenirComponentAtributCanviar(a);
-
-        if (jc.getClass() == JTextField.class) {
-            jP_atributEditarProducte.setVisible(true);
-            jP_atributEditarProducteTF.setVisible(true);
-        }
+        canviarAtributInterficie(obtenirComponentAtributCanviar(obtenirAtributEscollit(jCB_producteAtrEditar.getSelectedItem().toString())).getClass());
     }//GEN-LAST:event_jCB_producteAtrEditarActionPerformed
+
+    
+    //TODO: Falta ara conectar la clase amb ...
+    private void canviarAtributInterficie(Class c) {
+        jP_atributEditarProducte.setVisible(true);
+        if (c == JTextField.class) {
+            jP_atributEditarProducteTF.setVisible(true);
+            jP_atributEditarProducteTA.setVisible(false);
+            jP_atributEditarProducteTA.setVisible(false);
+            jP_atributEditarProducteCB.setVisible(false);
+        } else if (c == JTextArea.class) {
+            jP_atributEditarProducteTF.setVisible(false);
+            jP_atributEditarProducteTA.setVisible(true);
+            jP_atributEditarProducteTA.setVisible(false);
+            jP_atributEditarProducteCB.setVisible(false);
+        } else if (c == JScrollPane.class) {
+            jP_atributEditarProducteTF.setVisible(false);
+            jP_atributEditarProducteTA.setVisible(false);
+            jP_atributEditarProducteTA.setVisible(true);
+            jP_atributEditarProducteCB.setVisible(false);
+        } else if (c == JComboBox.class) {
+            jP_atributEditarProducteTF.setVisible(false);
+            jP_atributEditarProducteTA.setVisible(false);
+            jP_atributEditarProducteTA.setVisible(false);
+            jP_atributEditarProducteCB.setVisible(true);
+        }
+    }
 
     private String obtenirAtributEscollit(String s) {
         for (Map.Entry<String, JLabel> entry : producteAtributs.entrySet()) {
