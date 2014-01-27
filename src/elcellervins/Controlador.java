@@ -57,4 +57,16 @@ public class Controlador {
         }
         return new TreeMap<String, Vi>();
     }
+    
+    public void obtenirDadesEntrades(String tipusVi){
+        if(tipusVi.equalsIgnoreCase("Negre")){
+            
+        }else  if(tipusVi.equalsIgnoreCase("Blanc")){
+            
+        }else  if(tipusVi.equalsIgnoreCase("Rosat")){
+            
+        }else  if(tipusVi.equalsIgnoreCase("Espumos")){
+            
+        }
+    }
 }

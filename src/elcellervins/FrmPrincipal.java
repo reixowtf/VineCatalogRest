@@ -34,12 +34,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private ArrayList<Component> colorejarBorders;
     private Border defaultBorder;
     private TreeMap<String, JLabel> producteAtributs;
+    private Controlador controlador;
 
     /**
      * Creates new form FrmPrincipal
      */
     public FrmPrincipal() {
         initComponents();
+        controlador = new Controlador();
         pActive = this.getContentPane();
         pParent = this.getContentPane();
         matchSpace = "^\\s*$";
@@ -267,13 +269,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jL_producteTipusVi.setName("jL_producteTipusVi"); // NOI18N
 
         jCB_producteTipusVi.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jCB_producteTipusVi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Negre", "Blanc", "Rosat", "Espumós" }));
+        jCB_producteTipusVi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Negre", "Blanc", "Rosat", "Espumos" }));
         jCB_producteTipusVi.setName("jCB_producteTipusVi"); // NOI18N
-        jCB_producteTipusVi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCB_producteTipusViActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jP_nouProducteLayout = new javax.swing.GroupLayout(jP_nouProducte);
         jP_nouProducte.setLayout(jP_nouProducteLayout);
@@ -360,6 +357,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jB_editarProduct.setText("Editar Producte");
 
         jCB_producteNom.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jCB_producteNom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCB_producteNomActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Nom:");
@@ -765,6 +767,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_obtenirCatalegActionPerformed
 
     private void jB_nouProducteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_nouProducteActionPerformed
+        jCB_producteTipusVi.setModel(new DefaultComboBoxModel(new String[]{"Negre", "Blanc", "Rosat", "Espumós"}));
+        jCB_producteTipusVi.setSelectedIndex(0);
         changeLayout(pActive = jP_nouProducte);
         jTF_producteNom.requestFocus();
         pParent = jP_nouProducte;
@@ -798,8 +802,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_tornarActionPerformed
 
     private void jB_editarProducteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_editarProducteActionPerformed
+        jCB_producteNom.setModel(new DefaultComboBoxModel(obtenirNomsVins().toArray()));
         producteAtributs = obtenirLabels();
         jCB_producteAtrEditar.setModel(new DefaultComboBoxModel(obtenirAtributsLabels(producteAtributs).toArray()));
+        //CB_producteAtrEditar.setEnabled(false);
         jP_atributEditarProducteTA.setVisible(false);
         jP_atributEditarProducteCB.setVisible(false);
         jP_atributEditarProducteTF.setVisible(false);
@@ -822,6 +828,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
             int opcio = JOptionPane.showConfirmDialog(null, "Segur que vols guardar aquest producte?", "Guardar", JOptionPane.YES_NO_OPTION);
             if (opcio == JOptionPane.YES_OPTION) {
                 //TODO: Fer tot el guardat de dades
+                if (jCB_producteTipusVi.getSelectedItem().toString().equalsIgnoreCase("Negre")) {
+                    controlador.obtenirDadesEntrades("Negre");
+                } else if (jCB_producteTipusVi.getSelectedItem().toString().equalsIgnoreCase("Blanc")) {
+                    controlador.obtenirDadesEntrades("Blanc");
+                } else if (jCB_producteTipusVi.getSelectedItem().toString().equalsIgnoreCase("Rosat")) {
+                    controlador.obtenirDadesEntrades("Rosat");
+                } else if (jCB_producteTipusVi.getSelectedItem().toString().equalsIgnoreCase("Espumos")) {
+                    controlador.obtenirDadesEntrades("Espumos");
+                }
+
                 natejarPantalla();
                 changeLayout(pActive = pParent);
                 natejarPantalla();
@@ -832,34 +848,46 @@ public class FrmPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jB_generarProducteActionPerformed
 
-    private void jCB_producteTipusViActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB_producteTipusViActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCB_producteTipusViActionPerformed
-
     private void jCB_producteAtrEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB_producteAtrEditarActionPerformed
-        canviarAtributInterficie(obtenirComponentAtributCanviar(obtenirAtributEscollit(jCB_producteAtrEditar.getSelectedItem().toString())).getClass());
+        canviarAtributInterficie(obtenirComponentAtributCanviar(obtenirAtributEscollit(jCB_producteAtrEditar.getSelectedItem().toString())));
     }//GEN-LAST:event_jCB_producteAtrEditarActionPerformed
 
-    
+    private void jCB_producteNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB_producteNomActionPerformed
+        if (jCB_producteNom.getSelectedItem().toString().equalsIgnoreCase("")) {
+            jCB_producteAtrEditar.setEnabled(false);
+        } else {
+            jCB_producteAtrEditar.setEnabled(true);
+        }
+    }//GEN-LAST:event_jCB_producteNomActionPerformed
+
+    private ArrayList<String> obtenirNomsVins() {
+        ArrayList<String> vins = new ArrayList<>();
+        vins.add("");
+
+        return vins;
+    }
+
     //TODO: Falta ara conectar la clase amb ...
-    private void canviarAtributInterficie(Class c) {
+    private void canviarAtributInterficie(JComponent comp) {
         jP_atributEditarProducte.setVisible(true);
-        if (c == JTextField.class) {
+        System.out.println(comp.getName());
+        if (comp.getClass() == JTextField.class) {
             jP_atributEditarProducteTF.setVisible(true);
             jP_atributEditarProducteTA.setVisible(false);
             jP_atributEditarProducteTA.setVisible(false);
             jP_atributEditarProducteCB.setVisible(false);
-        } else if (c == JTextArea.class) {
+            //jP_atributEditarProducteTF.add(comp).setBounds(0, 0, 100, 35);
+        } else if (comp.getClass() == JTextArea.class) {
             jP_atributEditarProducteTF.setVisible(false);
             jP_atributEditarProducteTA.setVisible(true);
             jP_atributEditarProducteTA.setVisible(false);
             jP_atributEditarProducteCB.setVisible(false);
-        } else if (c == JScrollPane.class) {
+        } else if (comp.getClass() == JScrollPane.class) {
             jP_atributEditarProducteTF.setVisible(false);
             jP_atributEditarProducteTA.setVisible(false);
             jP_atributEditarProducteTA.setVisible(true);
             jP_atributEditarProducteCB.setVisible(false);
-        } else if (c == JComboBox.class) {
+        } else if (comp.getClass() == JComboBox.class) {
             jP_atributEditarProducteTF.setVisible(false);
             jP_atributEditarProducteTA.setVisible(false);
             jP_atributEditarProducteTA.setVisible(false);
@@ -880,8 +908,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         ArrayList<String> atributsP = new ArrayList<>();
         for (Map.Entry<String, JLabel> entry : producteAtributs.entrySet()) {
             atributsP.add(entry.getKey());
-            System.out.println(entry.getKey());
-            System.out.println(entry.getValue().getName());
         }
         return atributsP;
     }
@@ -889,8 +915,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private JComponent obtenirComponentAtributCanviar(String l) {
         for (Component c : jP_afegirAtributsProducte.getComponents()) {
             if (c.getClass() != JLabel.class && c.getClass() != JButton.class) {
-                //System.out.println("l: " + l.substring(3, l.length()));
-                //System.out.println("c: " + c.getName().substring(4, c.getName().length()));
                 if (l.substring(3, l.length()).equalsIgnoreCase(c.getName().substring(4, c.getName().length()))) {
                     return (JComponent) c;
                 }
@@ -898,10 +922,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         }
         for (Component c : jP_nouProducte.getComponents()) {
             if (c.getClass() != JLabel.class && c.getClass() != JButton.class) {
-                System.out.println("l: " + l.substring(3, l.length()));
-                System.out.println("c: " + c);
-                System.out.println("c: " + c.getName());
-                System.out.println("c: " + c.getName().substring(4, c.getName().length()));
                 if (l.substring(3, l.length()).equalsIgnoreCase(c.getName().substring(4, c.getName().length()))) {
                     return (JComponent) c;
                 }
@@ -910,7 +930,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         return new JButton();
     }
 
-    //private SortedSet<String> obtenirLabels(){
     private TreeMap<String, JLabel> obtenirLabels() {
         TreeMap<String, JLabel> cTL = new TreeMap<>();
         for (Component c : jP_afegirAtributsProducte.getComponents()) {

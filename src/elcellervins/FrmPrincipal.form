@@ -458,14 +458,11 @@
                     <StringItem index="0" value="Negre"/>
                     <StringItem index="1" value="Blanc"/>
                     <StringItem index="2" value="Rosat"/>
-                    <StringItem index="3" value="Espum&#xf3;s"/>
+                    <StringItem index="3" value="Espumos"/>
                   </StringArray>
                 </Property>
                 <Property name="name" type="java.lang.String" value="jCB_producteTipusVi" noResource="true"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCB_producteTipusViActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -545,6 +542,9 @@
                   <StringArray count="0"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCB_producteNomActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
