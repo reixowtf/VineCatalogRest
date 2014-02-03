@@ -205,19 +205,22 @@
                       <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                               <Component id="jL_producteDataCata" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jTF_producteDataCata" pref="274" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jL_producteAnyCollita" min="-2" max="-2" attributes="0"/>
                                   <Component id="jL_productePreu" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_producteQualificacio" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jTF_productePreu" max="32767" attributes="0"/>
                                   <Component id="jTF_producteAnyCollita" max="32767" attributes="0"/>
+                                  <Component id="jCB_producteQualificacio" alignment="0" pref="298" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -250,6 +253,8 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jL_producteRegio" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTF_producteRegio" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jL_producteQualificacio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCB_producteQualificacio" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -268,8 +273,8 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTF_producteAlcohol" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="jL_producteAlcohol" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jL_producteDataCata" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTF_producteDataCata" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jL_producteDataCata" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Component id="jB_afegirAtributsProducte" min="-2" pref="59" max="-2" attributes="0"/>
@@ -341,13 +346,13 @@
                 <Property name="name" type="java.lang.String" value="jL_productePreu" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jL_producteDataCata">
+            <Component class="javax.swing.JLabel" name="jL_producteQualificacio">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*Data de la cata:"/>
-                <Property name="name" type="java.lang.String" value="jL_producteDataCata" noResource="true"/>
+                <Property name="text" type="java.lang.String" value="Qualificaci&#xf3;:"/>
+                <Property name="name" type="java.lang.String" value="jL_producteQualificacio" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTF_producteNom">
@@ -462,6 +467,39 @@
                   </StringArray>
                 </Property>
                 <Property name="name" type="java.lang.String" value="jCB_producteTipusVi" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCB_producteTipusViActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jL_producteDataCata">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="*Data de la cata:"/>
+                <Property name="name" type="java.lang.String" value="jL_producteDataCata" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jCB_producteQualificacio">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="10">
+                    <StringItem index="0" value="1"/>
+                    <StringItem index="1" value="2"/>
+                    <StringItem index="2" value="3"/>
+                    <StringItem index="3" value="4"/>
+                    <StringItem index="4" value="5"/>
+                    <StringItem index="5" value="6"/>
+                    <StringItem index="6" value="7"/>
+                    <StringItem index="7" value="8"/>
+                    <StringItem index="8" value="9"/>
+                    <StringItem index="9" value="10"/>
+                  </StringArray>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>
@@ -737,60 +775,51 @@
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jL_producteAtrAromes" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_producteAtrIntensitatAroma" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jL_producteAtrAromes" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jL_producteAtrIntensitatAroma" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jL_producteAtrConclusions" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="jCB_producteAtrIntensitatAroma" min="-2" pref="205" max="-2" attributes="0"/>
+                                  <Component id="jSP_producteAtrAromes" max="32767" attributes="0"/>
                               </Group>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jSP_producteAtrAromes" pref="239" max="32767" attributes="0"/>
-                                  <Component id="jSP_producteAtrConclusions" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jCB_producteAtrIntensitatAroma" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
-                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                              <Component id="jL_producteAtrConclusions" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jSP_producteAtrConclusions" min="-2" pref="266" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="jB_generarProducte" min="-2" pref="158" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jL_producteAtrSabors" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jL_producteAtrIntensitaSabor" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jL_producteAtrSecDols" alignment="1" min="-2" max="-2" attributes="0"/>
                                       <Component id="jL_producteAtrAcidez" alignment="1" min="-2" max="-2" attributes="0"/>
                                       <Component id="jL_producteAtrCos" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jL_producteAtrTempsBoca" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_producteAtrSabors" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_producteAtrTempsBoca" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jCB_producteAtrIntensitaSabor" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
-                                          <Component id="jCB_producteAtrTempsBoca" min="-2" pref="205" max="-2" attributes="0"/>
-                                          <Component id="jCB_producteAtrAcidez" min="-2" pref="205" max="-2" attributes="0"/>
-                                          <Component id="jCB_producteAtrCos" min="-2" pref="205" max="-2" attributes="0"/>
-                                          <Component id="jCB_producteAtrSecDols" min="-2" pref="205" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="0" pref="90" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="jSP_producteAtrSabors" pref="295" max="32767" attributes="0"/>
+                                  <Component id="jCB_producteAtrIntensitaSabor" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                                  <Component id="jCB_producteAtrAcidez" min="-2" pref="205" max="-2" attributes="0"/>
+                                  <Component id="jCB_producteAtrCos" min="-2" pref="205" max="-2" attributes="0"/>
+                                  <Component id="jCB_producteAtrSecDols" min="-2" pref="205" max="-2" attributes="0"/>
+                                  <Component id="jSP_producteAtrSabors" alignment="0" min="-2" pref="243" max="-2" attributes="0"/>
+                                  <Component id="jCB_producteAtrTempsBoca" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace pref="38" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jB_generarProducte" min="-2" pref="158" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -829,23 +858,30 @@
                       </Group>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jSP_producteAtrAromes" min="-2" pref="109" max="-2" attributes="0"/>
-                          <Component id="jL_producteAtrAromes" min="-2" max="-2" attributes="0"/>
-                          <Component id="jL_producteAtrSabors" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSP_producteAtrSabors" min="-2" pref="109" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="27" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jL_producteAtrTempsBoca" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCB_producteAtrTempsBoca" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jL_producteAtrAromes" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jSP_producteAtrAromes" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jL_producteAtrConclusions" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jSP_producteAtrConclusions" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jSP_producteAtrSabors" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_producteAtrSabors" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="33" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jCB_producteAtrTempsBoca" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_producteAtrTempsBoca" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jB_generarProducte" min="-2" pref="66" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jSP_producteAtrConclusions" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
-                          <Component id="jL_producteAtrConclusions" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -1071,25 +1107,6 @@
                 <Property name="name" type="java.lang.String" value="jCB_producteAtrTempsBoca" noResource="true"/>
               </Properties>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="jSP_producteAtrAromes">
-              <Properties>
-                <Property name="name" type="java.lang.String" value="jSP_producteAtrAromes" noResource="true"/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTA_producteAtrAromes">
-                  <Properties>
-                    <Property name="columns" type="int" value="20"/>
-                    <Property name="rows" type="int" value="5"/>
-                    <Property name="name" type="java.lang.String" value="jTA_producteAtrAromes" noResource="true"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
             <Container class="javax.swing.JScrollPane" name="jSP_producteAtrConclusions">
               <Properties>
                 <Property name="name" type="java.lang.String" value="jSP_producteAtrConclusions" noResource="true"/>
@@ -1109,21 +1126,34 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JScrollPane" name="jSP_producteAtrSabors">
-              <Properties>
-                <Property name="name" type="java.lang.String" value="jSP_producteAtrSabors" noResource="true"/>
-              </Properties>
+            <Container class="javax.swing.JScrollPane" name="jSP_producteAtrAromes">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTA_producteAtrSabors">
+                <Component class="javax.swing.JList" name="jList_producteAtrAromes">
                   <Properties>
-                    <Property name="columns" type="int" value="20"/>
-                    <Property name="rows" type="int" value="5"/>
-                    <Property name="name" type="java.lang.String" value="jTA_producteAtrSabors" noResource="true"/>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JScrollPane" name="jSP_producteAtrSabors">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="jList_producteAtrSabors">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
                   </Properties>
                 </Component>
               </SubComponents>

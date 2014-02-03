@@ -13,20 +13,13 @@ import java.util.ArrayList;
  * @author Reixowtf
  */
 public abstract class Vi {
-    private String dataCata, tipus, nom, productor, regio, alcohol, profunditat, tonalitat, netedat, intensitatColor, sec_dols, cos, acides, instensitatSabor;
+    private String dataCata, nom, productor, regio, alcohol, profunditat, tonalitat, netedat, intensitatColor, sec_dols, cos, acides, instensitatSabor;
     private ArrayList<String> varietatRaim, aromes, sabors;
     private float preu;
     private byte temps, qualificacio;
-
-    /*public vi(){
-    dataCata = new SimpleDateFormat("yyyy/MM/dd").format(new Date());
-    nom = "";
-    }*/
     
-    //Tipus és si el vi és jove, de criansa o vi per cava.
-    public Vi(String dataCata, String tipus, String nom, String productor, String regio, String alcohol, String profunditat, String tonalitat, String netedat, String intensitatColor, String sec_dols, String cos, String acides, String instensitatSabor, ArrayList<String> varietatRaim, ArrayList<String> aromes, ArrayList<String> sabors, float preu, byte temps, byte qualificacio) {
+    public Vi(String dataCata, String nom, String productor, String regio, String alcohol, String profunditat, String tonalitat, String netedat, String intensitatColor, String sec_dols, String cos, String acides, String instensitatSabor, ArrayList<String> varietatRaim, ArrayList<String> aromes, ArrayList<String> sabors, float preu, byte temps, byte qualificacio) {
         this.dataCata = dataCata;
-        this.tipus = tipus;
         this.nom = nom;
         this.productor = productor;
         this.regio = regio;
