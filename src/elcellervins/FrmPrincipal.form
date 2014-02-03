@@ -63,6 +63,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jB_editarProducte">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Editar Producte"/>
           </Properties>
           <Events>
@@ -71,6 +74,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jB_obtenirCataleg">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Obtenir Cataleg"/>
           </Properties>
           <Events>
@@ -79,6 +85,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jB_nouProducte">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Nou Producte"/>
           </Properties>
           <Events>
@@ -158,6 +167,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jB_tornar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Tornar"/>
           </Properties>
           <Events>

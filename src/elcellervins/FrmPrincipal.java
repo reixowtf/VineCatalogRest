@@ -140,6 +140,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
 
+        jB_editarProducte.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jB_editarProducte.setText("Editar Producte");
         jB_editarProducte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,6 +148,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jB_obtenirCataleg.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jB_obtenirCataleg.setText("Obtenir Cataleg");
         jB_obtenirCataleg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,6 +156,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jB_nouProducte.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jB_nouProducte.setText("Nou Producte");
         jB_nouProducte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,6 +191,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         getContentPane().add(jP_principal, "card3");
 
+        jB_tornar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jB_tornar.setText("Tornar");
         jB_tornar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -815,8 +819,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 }
             }
         } else {
-            natejarPantalla();
+
             if (jP_nouProducte.isShowing() || jP_editarProducte.isShowing()) {
+                if(jP_nouProducte.isShowing()){
+                    natejarPantalla();
+                }
                 this.setContentPane(jP_principal);
                 jP_principal.setVisible(true);
                 pActive = jP_principal;
@@ -836,7 +843,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jP_atributEditarProducteTF.setVisible(false);
         jP_atributEditarProducte.setVisible(false);
         changeLayout(pActive = jP_editarProducte);
-        pParent = jB_editarProduct;
     }//GEN-LAST:event_jB_editarProducteActionPerformed
 
     private void jB_afegirAtributsProducteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_afegirAtributsProducteActionPerformed
@@ -855,6 +861,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
             if (opcio == JOptionPane.YES_OPTION) {
                 //TODO: Fer tot el guardat de dades
                 if (jCB_producteTipusVi.getSelectedItem().toString().equalsIgnoreCase("Negre")) {
+                    if (!jTF_productePreu.equals("^[0-9]$")) {
+                        jTF_productePreu.setText("0");
+                    }
                     controlador.afegirNegre(jTF_producteDataCata.getText(), jTF_producteNom.getText(), jTF_productorNom.getText(), jTF_producteRegio.getText(), jTF_producteAlcohol.getText(), jCB_producteAtrPofunditat.getSelectedItem().toString(), jCB_producteAtrTonalitat.getSelectedItem().toString(), jCB_producteAtrNetedat.getSelectedItem().toString(), matchSpace, jCB_producteAtrSecDols.getSelectedItem().toString(), jCB_producteAtrCos.getSelectedItem().toString(), jCB_producteAtrAcidez.getSelectedItem().toString(), jCB_producteAtrIntensitaSabor.getSelectedItem().toString(), null, null, null, Float.parseFloat(jTF_productePreu.getText().toString()), ((byte) jCB_producteAtrTempsBoca.getSelectedIndex()), Byte.parseByte(jCB_producteQualificacio.getSelectedItem().toString()));
                 } else if (jCB_producteTipusVi.getSelectedItem().toString().equalsIgnoreCase("Blanc")) {
                 } else if (jCB_producteTipusVi.getSelectedItem().toString().equalsIgnoreCase("Rosat")) {
@@ -1027,45 +1036,36 @@ public class FrmPrincipal extends javax.swing.JFrame {
     //Natejar tots els valors entrats
     private void natejarPantalla() {
         for (Component comp : pActive.getComponents()) {
-            if (comp.getClass() == JLabel.class
-                    || comp.getClass() == JButton.class) {
-
+            if (comp.getClass() == JLabel.class || comp.getClass() == JButton.class) {
                 continue;
-            } else if (comp.getClass()
-                    == JTextField.class) {
+            } else if (comp.getClass() == JTextField.class) {
                 ((JTextField) comp).setText("");
-            } else if (comp.getClass()
-                    == JScrollPane.class) {
+            } else if (comp.getClass() == JScrollPane.class) {
                 for (Component cScroll : ((JScrollPane) comp).getViewport()
                         .getComponents()) {
                     if (cScroll.getClass() == JTextArea.class) {
                         ((JTextArea) cScroll).setText(null);
                     }
                 }
+            } else if (comp.getClass() == JComboBox.class) {
+                ((JComboBox) comp).setSelectedIndex(0);
             }
         }
         colorejarCamps(colorejarBorders, defaultBorder);
         colorejarBorders.clear();
-
     }
 
     //Comprovació de si totes les dades estan entrades en tots els camps.
     private boolean campsOmplerts() {
         for (Component comp : pActive.getComponents()) {
-            if (comp.getClass() == JLabel.class
-                    || comp.getClass() == JButton.class) {
-
+            if (comp.getClass() == JLabel.class || comp.getClass() == JButton.class) {
                 continue;
-            } else if (comp.getClass()
-                    == JTextField.class) {
-                if (!((JTextField) comp).getText()
-                        .matches(matchSpace)) {
+            } else if (comp.getClass() == JTextField.class) {
+                if (!((JTextField) comp).getText().matches(matchSpace)) {
                     return true;
                 }
-            } else if (comp.getClass()
-                    == JScrollPane.class) {
-                for (Component cScroll : ((JScrollPane) comp).getViewport()
-                        .getComponents()) {
+            } else if (comp.getClass() == JScrollPane.class) {
+                for (Component cScroll : ((JScrollPane) comp).getViewport().getComponents()) {
                     if (cScroll.getClass() == JTextArea.class) {
                         if (!(((JTextArea) cScroll).getText()).matches(matchSpace)) {
                             return true;
@@ -1084,27 +1084,26 @@ public class FrmPrincipal extends javax.swing.JFrame {
         boolean omplerts = true;
 
         for (Component comp : pActive.getComponents()) {
-            if (obtatiu(obtatiu, comp) || comp.getClass() == JLabel.class
-                    || comp.getClass() == JButton.class) {
-
+            if (obtatiu(obtatiu, comp) || comp.getClass() == JLabel.class || comp.getClass() == JButton.class) {
                 continue;
-            } else if (comp.getClass()
-                    == JTextField.class) {
-                if (((JTextField) comp).getText()
-                        .matches(matchSpace)) {
+            } else if (comp.getClass() == JTextField.class) {
+                if (((JTextField) comp).getText().matches(matchSpace)) {
                     omplerts = false;
                     colorejarBorders.add(comp);
                 }
-            } else if (comp.getClass()
-                    == JScrollPane.class) {
-                for (Component cScroll : ((JScrollPane) comp).getViewport()
-                        .getComponents()) {
+            } else if (comp.getClass() == JScrollPane.class) {
+                for (Component cScroll : ((JScrollPane) comp).getViewport().getComponents()) {
                     if (cScroll.getClass() == JTextArea.class) {
                         if ((((JTextArea) cScroll).getText()).matches(matchSpace)) {
                             omplerts = false;
                             colorejarBorders.add(cScroll);
                         }
                     }
+                }
+            } else if (comp.getClass() == JComboBox.class) {
+                if (!jP_nouProducte.isShowing() && ((JComboBox) comp).getSelectedIndex() == 0) {
+                    omplerts = false;
+                    colorejarBorders.add(comp);
                 }
             }
         }
